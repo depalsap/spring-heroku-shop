@@ -15,6 +15,7 @@ public class Product {
         this.pName = pName;
         this.pDescript = pDescript;
         this.pCategory = pCategory;
+        this.netPrice = netPrice;
     }
 
     public String getpId() {
