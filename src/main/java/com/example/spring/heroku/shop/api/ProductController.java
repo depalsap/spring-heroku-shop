@@ -2,15 +2,22 @@ package com.example.spring.heroku.shop.api;
 
 import java.util.Arrays;
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class ProductController {
 
     @GetMapping("/")
-    public  String getSiteDetail() {
-        return "Hello Site";
+    public String viewHomePage(Model model) {
+        List<Product> productList= Arrays.asList(
+            new Product("100001", "MacBook Pro", "You want believe it!", "Laptop", 1140),
+            new Product("100002", "MacBook Pro", "You want believe it!", "Laptop", 1140)
+        );
+        model.addAttribute("locationStats", productList);
+        return "index";
     }
 
     @GetMapping("/products")
